@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Услуги по аудиту ИТ-инфраструктуры и ИТ/Телеком аутсорсингу. Профессиональная поддержка вашего бизнеса.">
+    <title>ИТ Аудит и Аутсорсинг | Профессиональные услуги</title>
+    <style>
+        /* Основные цвета: тёмно-синий (#0f172a), серый (#1e293b), акцент (#3b82f6), текст (#e2e8f0) */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        header {
+            background-color: #1e293b;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.8em;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.4em;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        nav {
+            background-color: #1e293b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        nav a {
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #60a5fa;
+        }
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.4em;
+            margin-bottom: 50px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+        .service-card {
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(59, 130, 246, 0.3);
+        }
+        .service-card h3 {
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 30px;
+        }
+        .prices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .price-card {
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .price-card:hover {
+            transform: scale(1.03);
+        }
+        .price-card h3 {
+            font-size: 1.6em;
+        }
+        .price {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #3b82f6;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+        .cta {
+            text-align: center;
+        }
+        
+        /* Стили для формы */
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #1e293b;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #0f172a;
+            border: 1px solid #3b82f6;
+            border-radius: 5px;
+            color: #e2e8f0;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #60a5fa;
+            box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #64748b;
+        }
+        .required::after {
+            content: " *";
+            color: #ef4444;
+        }
+        
+        /* Стили для капчи */
+        .captcha-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .captcha-box {
+            background-color: #0f172a;
+            border: 1px solid #3b82f6;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #3b82f6;
+            letter-spacing: 3px;
+            min-width: 120px;
+            text-align: center;
+        }
+        #captchaInput {
+            flex: 1;
+            min-width: 200px;
+        }
+        .refresh-captcha {
+            background: none;
+            border: none;
+            color: #3b82f6;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: transform 0.3s ease;
+        }
+        .refresh-captcha:hover {
+            transform: rotate(180deg);
+            background: none;
+        }
+        
+        .phone-number {
+            font-size: 1.2em;
+            color: #3b82f6;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .success-message {
+            background-color: #10b981;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+        
+        footer {
+            background-color: #1e293b;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2em; }
+            nav a { display: block; margin: 10px 0; }
+            .captcha-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#prices">Цены</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+
+    <header>
+        <h1>Профессиональный ИТ Аудит и Аутсорсинг</h1>
+        <p>Оптимизация ИТ-инфраструктуры и надёжная поддержка для вашего бизнеса. Эффективно. Безопасно. Масштабируемо.</p>
+        <div class="phone-number">
+          
+        </div>
+        <div class="cta">
+            <a href="#contact"><button>Связаться с нами</button></a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>О компании</h2>
+        <p style="text-align:center; max-width:800px; margin:0 auto;">Мы — команда экспертов в области ИТ и телекоммуникаций. Специализируемся на аудите инфраструктуры и полном аутсорсинге. Помогаем бизнесу снижать затраты, повышать безопасность и эффективность. Можем приехать от Туапсе до республики Абхазия.</p>
+    </section>
+
+    <section id="services">
+        <h2>Наши услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Аудит ИТ-инфраструктуры</h3>
+                <ul>
+                    <li>Полный анализ серверов, сетей и ПО</li>
+                    <li>Выявление уязвимостей и рисков</li>
+                    <li>Рекомендации по оптимизации</li>
+                    <li>Отчёт с приоритетами и бюджетом</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>ИТ и Телеком Аутсорсинг</h3>
+                <ul>
+                    <li>Круглосуточная поддержка 24/7</li>
+                    <li>Администрирование серверов и облаков</li>
+                    <li>Телекоммуникации и VoIP</li>
+                    <li>Мониторинг и профилактика</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="prices">
+        <h2>Цены (ориентировочные)</h2>
+        <div class="prices">
+            <div class="price-card">
+                <h3>Аудит инфраструктуры</h3>
+                <div class="price">от 50 000 ₽</div>
+                <p>Зависит от масштаба компании</p>
+            </div>
+            <div class="price-card">
+                <h3>ИТ Аутсорсинг</h3>
+                <div class="price">от 100 000 ₽/мес</div>
+                <p>За 10-20 рабочих мест</p>
+            </div>
+            <div class="price-card">
+                <h3>Телеком Аутсорсинг</h3>
+                <div class="price">от 80 000 ₽/мес</div>
+                <p>Включая поддержку связи</p>
+            </div>
+        </div>
+        <div class="cta" style="margin-top:50px;">
+            <a href="#contact"><button>Заказать расчёт</button></a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Свяжитесь с нами</h2>
+        <p style="text-align:center;">
+            Телефон: <strong>8 (---) ----82-62</strong><br>
+            Email: конфидециально@ya.ru<br>
+            Мы ответим в течение 1 часа.
+        </p>
+        
+        <div class="success-message" id="successMessage">
+            Спасибо за обращение! Мы свяжемся с вами в ближайшее время.
+        </div>
+        
+        <div class="contact-form" id="contactForm">
+            <form id="feedbackForm" onsubmit="return handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="name" class="required">ФИО</label>
+                    <input type="text" id="name" name="name" placeholder="Иванов Иван Иванович" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="required">Номер телефона</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="required">Email</label>
+                    <input type="email" id="email" name="email" placeholder="example@mail.ru" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Опишите ваш вопрос..."></textarea>
+                </div>
+                
+                <div class="captcha-container">
+                    <div class="captcha-box" id="captchaDisplay"></div>
+                    <input type="text" id="captchaInput" placeholder="Введите код с картинки" required class="form-group" style="margin-bottom:0;">
+                    <button type="button" class="refresh-captcha" onclick="generateCaptcha()" title="Обновить капчу">↻</button>
+                </div>
+                
+                <input type="hidden" id="captchaCode" name="captchaCode">
+                
+                <div class="cta">
+                    <button type="submit">Отправить сообщение</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Сообщество профессионалов. Все права защищены.</p>
+        <p>Телефон: 8 (---) ----82-62 | Email: конфедециальность@ya.ru</p>
+    </footer>
+
+    <script>
+        // Генерация случайной капчи
+        function generateCaptcha() {
+            const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            let captcha = '';
+            for (let i = 0; i < 6; i++) {
+                captcha += chars[Math.floor(Math.random() * chars.length)];
+            }
+            document.getElementById('captchaDisplay').textContent = captcha;
+            document.getElementById('captchaCode').value = captcha;
+            document.getElementById('captchaInput').value = '';
+        }
+
+        // Обработка отправки формы
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Получаем значения полей
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const userCaptcha = document.getElementById('captchaInput').value.trim();
+            const correctCaptcha = document.getElementById('captchaCode').value;
+            
+            // Проверка заполнения обязательных полей
+            if (!name || !phone || !email) {
+                alert('Пожалуйста, заполните все обязательные поля');
+                return false;
+            }
+            
+            // Проверка капчи
+            if (userCaptcha !== correctCaptcha) {
+                alert('Неверный код капчи. Пожалуйста, попробуйте снова.');
+                generateCaptcha(); // Обновляем капчу
+                return false;
+            }
+            
+            // Подготовка данных для отправки
+            const formData = {
+                name: name,
+                phone: phone,
+                email: email,
+                message: message || 'Без сообщения',
+                timestamp: new Date().toLocaleString('ru-RU')
+            };
+            
+            // Отправка данных на email через Formspree
+            fetch('https://formspree.io/f/meelykpn', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Показываем сообщение об успехе
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('feedbackForm').reset();
+                    generateCaptcha(); // Обновляем капчу
+                    
+                    // Скрываем сообщение через 5 секунд
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 5000);
+                } else {
+                    alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.');
+            });
+            
+            return false;
+        }
+
+        // Инициализация капчи при загрузке страницы
+        window.onload = function() {
+            generateCaptcha();
+            
+            // Добавляем маску для телефона
+            const phoneInput = document.getElementById('phone');
+            phoneInput.addEventListener('input', function(e) {
+                let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+                e.target.value = !x[2] ? x[1] : '+7 (' + x[2] + ') ' + x[3] + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+            });
+            
+            // Плавный скролл для навигации
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        };
+    </script>
+</body>
+</html>
